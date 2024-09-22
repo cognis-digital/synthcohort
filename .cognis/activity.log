@@ -4,3 +4,4 @@
 2024-08-12T14:08:28  perf(output): handle empty and malformed input
 2024-08-13T09:25:35  test(tests): improve error messages with context
 2024-09-03T16:42:42  feat(cache): fix off-by-one in line numbers
+2024-09-22T11:59:49  fix(core): simplify the walker
