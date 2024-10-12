@@ -5,3 +5,4 @@
 2024-08-13T09:25:35  test(tests): improve error messages with context
 2024-09-03T16:42:42  feat(cache): fix off-by-one in line numbers
 2024-09-22T11:59:49  fix(core): simplify the walker
+2024-10-12T18:16:56  perf(ci): tune severity weights
