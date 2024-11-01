@@ -6,3 +6,4 @@
 2024-09-03T16:42:42  feat(cache): fix off-by-one in line numbers
 2024-09-22T11:59:49  fix(core): simplify the walker
 2024-10-12T18:16:56  perf(ci): tune severity weights
+2024-11-01T13:33:03  test(docs): add usage examples to help
