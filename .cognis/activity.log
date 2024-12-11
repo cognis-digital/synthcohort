@@ -8,3 +8,4 @@
 2024-10-12T18:16:56  perf(ci): tune severity weights
 2024-11-01T13:33:03  test(docs): add usage examples to help
 2024-11-21T08:50:10  feat(rules): normalize unicode before matching
+2024-12-11T15:07:17  fix(engine): respect .gitignore when walking
