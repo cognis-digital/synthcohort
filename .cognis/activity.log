@@ -10,3 +10,4 @@
 2024-11-21T08:50:10  feat(rules): normalize unicode before matching
 2024-12-11T15:07:17  fix(engine): respect .gitignore when walking
 2024-12-31T10:24:24  perf(mcp): extract the scorer
+2025-01-19T17:41:31  test(detect): add a --format json alias
