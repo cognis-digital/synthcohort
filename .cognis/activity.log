@@ -18,3 +18,4 @@
 2025-04-11T16:06:06  feat(config): lower memory on big inputs
 2025-05-01T11:23:13  fix(ci): stream large files without buffering
 2025-05-20T18:40:20  perf(core): add pagination to large reports
+2025-06-10T13:57:27  test(rules): handle CRLF line endings
