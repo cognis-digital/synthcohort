@@ -20,3 +20,4 @@
 2025-05-20T18:40:20  perf(core): add pagination to large reports
 2025-06-10T13:57:27  test(rules): handle CRLF line endings
 2025-06-29T08:14:34  feat(docs): add color + severity icons
+2025-07-19T15:31:41  fix(scan): add a regression fixture
