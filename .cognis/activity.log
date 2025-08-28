@@ -22,3 +22,4 @@
 2025-06-29T08:14:34  feat(docs): add color + severity icons
 2025-07-19T15:31:41  fix(scan): add a regression fixture
 2025-08-08T10:48:48  chore(format): clarify the README quickstart
+2025-08-28T17:05:55  test(io): improve error messages with context
