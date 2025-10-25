@@ -1,0 +1,25 @@
+{
+  "name": "vitals",
+  "fields": [
+    {"name": "patient_id", "type": "id", "prefix": "MRN", "width": 6, "start": 1000},
+    {"name": "first_name", "type": "first_name"},
+    {"name": "last_name", "type": "last_name"},
+    {"name": "age", "type": "int", "min": 18, "max": 90},
+    {"name": "sex", "type": "choice", "values": ["M", "F"]},
+    {
+      "name": "risk_group",
+      "type": "weighted_choice",
+      "values": ["low", "moderate", "high"],
+      "weights": [60, 30, 10]
+    },
+    {
+      "name": "systolic_bp",
+      "type": "normal",
+      "mean": 126,
+      "sd": 17,
+      "min": 70,
+      "max": 230
+    },
+    {"name": "on_statin", "type": "bool", "p": 0.25}
+  ]
+}
