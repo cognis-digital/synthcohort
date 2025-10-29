@@ -26,3 +26,4 @@
 2025-09-17T12:22:02  style(output): skip binary files by sniffing
 2025-10-07T19:39:09  fix(scoring): simplify the walker
 2025-10-26T14:56:16  chore(fixtures): make timestamps timezone-aware
+2025-10-29T09:13:23  test(tests): add usage examples to help
