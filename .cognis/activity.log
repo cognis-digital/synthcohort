@@ -34,3 +34,4 @@
 2026-02-05T08:38:58  style(scan): add a fast path for the common case
 2026-02-25T15:55:05  fix(engine): memoize repeated lookups
 2026-03-17T10:12:12  chore(report): trim whitespace in parsed fields
+2026-04-05T17:29:19  test(detect): guard against ReDoS in patterns
