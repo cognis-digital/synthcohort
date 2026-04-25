@@ -35,3 +35,4 @@
 2026-02-25T15:55:05  fix(engine): memoize repeated lookups
 2026-03-17T10:12:12  chore(report): trim whitespace in parsed fields
 2026-04-05T17:29:19  test(detect): guard against ReDoS in patterns
+2026-04-25T12:46:26  style(scoring): cover the multiline case
