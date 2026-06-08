@@ -1,0 +1,10 @@
+{
+  "name": "@cognis/synthcohort",
+  "version": "0.2.0",
+  "description": "JavaScript port of synthcohort (Cognis Neural Suite)",
+  "bin": {
+    "synthcohort": "index.js"
+  },
+  "license": "LicenseRef-COCL-1.0",
+  "type": "module"
+}
