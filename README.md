@@ -16,7 +16,7 @@
 </div>
 
 ```bash
-pip install cognis-synthcohort
+pip install "git+https://github.com/cognis-digital/synthcohort.git"
 synthcohort scan .            # â†’ prioritized findings in seconds
 ```
 
@@ -51,7 +51,7 @@ Spin up PHI-free test data that matches your real distributions in one command â
 ## Quick start
 
 ```bash
-pip install cognis-synthcohort
+pip install "git+https://github.com/cognis-digital/synthcohort.git"
 synthcohort --version
 synthcohort scan .                       # scan current project
 synthcohort scan . --format json         # machine-readable
