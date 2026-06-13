@@ -20,6 +20,12 @@ pip install "git+https://github.com/cognis-digital/synthcohort.git"
 synthcohort scan .            # → prioritized findings in seconds
 ```
 
+<!-- cognis:layman:start -->
+## What is this?
+
+Synthcohort creates fake but realistic patient records for software developers and testers who work in healthcare. You give it a simple description of what fields you need (age, blood pressure, diagnoses, etc.), and it generates hundreds or thousands of realistic-looking patient rows in CSV or JSON format. Because the data is entirely made up, your team can build, test, and demonstrate healthcare software without ever risking real patient privacy. It is a command-line tool that works on Windows, Mac, and Linux and can also be driven by AI agents via an MCP server.
+<!-- cognis:layman:end -->
+
 ## Contents
 
 - [Why synthcohort?](#why) · [Features](#features) · [Quick start](#quick-start) · [Example](#example) · [Architecture](#architecture) · [AI stack](#ai-stack) · [How it compares](#how-it-compares) · [Integrations](#integrations) · [Install anywhere](#install-anywhere) · [Related](#related) · [Contributing](#contributing)
@@ -48,6 +54,42 @@ Spin up PHI-free test data that matches your real distributions in one command �
 <div align="right"><a href="#top">↑ back to top</a></div>
 
 <a name="quick-start"></a>
+<!-- cognis:install:start -->
+## Install
+
+`synthcohort` is source-available (not published to PyPI) — every method below installs
+straight from GitHub. Pick whichever you prefer; the one-line scripts auto-detect
+the best tool available on your machine.
+
+**One-liner (Linux / macOS):**
+```sh
+curl -fsSL https://raw.githubusercontent.com/cognis-digital/synthcohort/HEAD/install.sh | sh
+```
+
+**One-liner (Windows PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/cognis-digital/synthcohort/HEAD/install.ps1 | iex
+```
+
+**Or install manually — any one of:**
+```sh
+pipx install "git+https://github.com/cognis-digital/synthcohort.git"     # isolated (recommended)
+uv tool install "git+https://github.com/cognis-digital/synthcohort.git"  # uv
+pip install "git+https://github.com/cognis-digital/synthcohort.git"      # pip
+```
+
+**From source:**
+```sh
+git clone https://github.com/cognis-digital/synthcohort.git
+cd synthcohort && pip install .
+```
+
+Then run:
+```sh
+synthcohort --help
+```
+<!-- cognis:install:end -->
+
 ## Quick start
 
 ```bash
