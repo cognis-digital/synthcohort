@@ -20,6 +20,31 @@ pip install cognis-synthcohort
 synthcohort scan .            # → prioritized findings in seconds
 ```
 
+## Usage — step by step
+
+1. **Install** the CLI (console script `synthcohort`):
+   ```bash
+   pip install cognis-synthcohort
+   ```
+2. **Generate a cohort** — `gen` produces PHI-free synthetic records (CSV by default); use `--seed` for reproducibility and `-o` to write a file:
+   ```bash
+   synthcohort gen --count 100 --seed 42 --out patients.csv
+   ```
+3. **Use a custom schema or emit JSON** — start from the built-in template, edit it, then generate against it:
+   ```bash
+   synthcohort schema > template.json        # built-in default schema
+   synthcohort gen --schema template.json --count 50 --format json | jq '.[0]'
+   ```
+4. **Validate a schema** — `validate` exits `1` on an invalid spec so it can guard a pipeline:
+   ```bash
+   synthcohort validate --schema template.json
+   ```
+5. **Automate in CI** — regenerate deterministic test fixtures on every run:
+   ```yaml
+   - run: pip install cognis-synthcohort
+   - run: synthcohort gen --count 500 --seed 7 --out tests/fixtures/cohort.csv
+   ```
+
 ## Contents
 
 - [Why synthcohort?](#why) · [Features](#features) · [Quick start](#quick-start) · [Example](#example) · [Architecture](#architecture) · [AI stack](#ai-stack) · [How it compares](#how-it-compares) · [Integrations](#integrations) · [Install anywhere](#install-anywhere) · [Related](#related) · [Contributing](#contributing)
