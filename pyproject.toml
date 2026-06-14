@@ -34,3 +34,6 @@ synthcohort = "synthcohort.cli:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["synthcohort"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
