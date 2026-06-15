@@ -140,6 +140,8 @@ def validate_schema(schema):
 
     Returns the schema unchanged so it can be used inline.
     """
+    if schema is None:
+        raise SchemaError("schema must be a JSON object, got None")
     if not isinstance(schema, dict):
         raise SchemaError("schema must be a JSON object")
     fields = schema.get("fields")
@@ -202,6 +204,10 @@ def _validate_field_params(field, ftype):
                 if any((not isinstance(w, (int, float))) or w < 0 for w in weights):
                     raise SchemaError(
                         "field %r weights must be non-negative numbers" % name
+                    )
+                if sum(weights) == 0:
+                    raise SchemaError(
+                        "field %r weights must not all be zero" % name
                     )
     elif ftype == "date":
         for key in ("start", "end"):
@@ -300,9 +306,14 @@ def generate_cohort(schema, n, seed=None):
 
 
 def rows_to_csv(rows, fieldnames=None):
-    """Serialize a list of record dicts to a CSV string."""
+    """Serialize a list of record dicts to a CSV string.
+
+    Returns an empty string when rows is empty and fieldnames is not supplied.
+    """
+    if not rows and fieldnames is None:
+        return ""
     if fieldnames is None:
-        fieldnames = list(rows[0].keys()) if rows else []
+        fieldnames = list(rows[0].keys())
     buf = io.StringIO()
     writer = csv.DictWriter(buf, fieldnames=fieldnames, lineterminator="\n")
     writer.writeheader()

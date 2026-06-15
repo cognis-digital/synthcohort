@@ -101,8 +101,12 @@ def _build_parser():
 
 def _emit(text, out_path):
     if out_path:
-        with open(out_path, "w", encoding="utf-8", newline="") as fh:
-            fh.write(text)
+        try:
+            with open(out_path, "w", encoding="utf-8", newline="") as fh:
+                fh.write(text)
+        except OSError as exc:
+            sys.stderr.write("error: cannot write output file: %s\n" % exc)
+            raise
     else:
         sys.stdout.write(text)
         if not text.endswith("\n"):
@@ -120,11 +124,16 @@ def _cmd_gen(args):
         sys.stderr.write("schema error: %s\n" % exc)
         return 1
 
-    if args.format == "json":
-        _emit(json.dumps(rows, indent=2), args.out)
-    else:
-        # 'table' format for gen means CSV (the tool's native tabular output).
-        _emit(rows_to_csv(rows), args.out)
+    try:
+        if args.format == "json":
+            _emit(json.dumps(rows, indent=2), args.out)
+        else:
+            # 'table' format for gen means CSV (the tool's native tabular output).
+            # Always pass fieldnames so a zero-count run still emits the header.
+            fieldnames = [f["name"] for f in schema["fields"]]
+            _emit(rows_to_csv(rows, fieldnames=fieldnames), args.out)
+    except OSError:
+        return 2
     return 0
 
 
@@ -174,15 +183,22 @@ def main(argv=None):
     parser = _build_parser()
     args = parser.parse_args(argv)
 
-    if args.command is None:
-        parser.print_help()
-        return 0
-    if args.command == "gen":
-        return _cmd_gen(args)
-    if args.command == "validate":
-        return _cmd_validate(args)
-    if args.command == "schema":
-        return _cmd_schema(args)
+    try:
+        if args.command is None:
+            parser.print_help()
+            return 0
+        if args.command == "gen":
+            return _cmd_gen(args)
+        if args.command == "validate":
+            return _cmd_validate(args)
+        if args.command == "schema":
+            return _cmd_schema(args)
+    except KeyboardInterrupt:
+        sys.stderr.write("\ninterrupted\n")
+        return 130
+    except Exception as exc:  # pragma: no cover
+        sys.stderr.write("internal error: %s\n" % exc)
+        return 3
 
     parser.print_help()
     return 2
