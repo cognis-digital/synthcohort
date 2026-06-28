@@ -20,6 +20,65 @@ pip install cognis-synthcohort
 synthcohort scan .            # → prioritized findings in seconds
 ```
 
+
+<!-- cognis:example:start -->
+## 🔎 Example output
+
+Real, reproducible output from the tool — runs offline:
+
+```console
+$ synthcohort-emit --version
+synthcohort 0.1.0
+```
+
+```console
+$ synthcohort-emit --help
+usage: synthcohort [-h] [--version] [--format {table,json}] COMMAND ...
+
+Generate realistic, PHI-free synthetic patient cohorts from a schema spec.
+
+positional arguments:
+  COMMAND
+    gen                 generate a synthetic cohort (CSV by default)
+    validate            validate a schema file
+    schema              print the built-in default schema template
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --format {table,json}
+                        output format for commands that print data (default:
+                        table)
+
+examples:
+  synthcohort gen --count 100 --seed 42 --out patients.csv
+  synthcohort gen --schema my_schema.json --count 50
+  synthcohort gen --count 10 --format json | jq '.[0]'
+  synthcohort validate --schema my_schema.json
+  synthcohort schema > template.json
+```
+
+```console
+$ synthcohort-emit schema
+FIELD            TYPE
+---------------- ----------------
+patient_id       id
+first_name       first_name
+last_name        last_name
+age              int
+sex              choice
+blood_type       weighted_choice
+height_cm        normal
+weight_kg        normal
+systolic_bp      normal
+diabetic         bool
+enrolled_date    date
+```
+
+> Blocks above are real `synthcohort` output — reproduce them from a clone.
+
+<!-- cognis:example:end -->
+
 ## Usage — step by step
 
 1. **Install** the CLI (console script `synthcohort`):

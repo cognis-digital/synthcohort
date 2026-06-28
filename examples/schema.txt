@@ -1,0 +1,15 @@
+$ synthcohort-emit schema
+
+FIELD            TYPE
+---------------- ----------------
+patient_id       id
+first_name       first_name
+last_name        last_name
+age              int
+sex              choice
+blood_type       weighted_choice
+height_cm        normal
+weight_kg        normal
+systolic_bp      normal
+diabetic         bool
+enrolled_date    date

@@ -1,0 +1,25 @@
+$ synthcohort-emit --help
+
+usage: synthcohort [-h] [--version] [--format {table,json}] COMMAND ...
+
+Generate realistic, PHI-free synthetic patient cohorts from a schema spec.
+
+positional arguments:
+  COMMAND
+    gen                 generate a synthetic cohort (CSV by default)
+    validate            validate a schema file
+    schema              print the built-in default schema template
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --format {table,json}
+                        output format for commands that print data (default:
+                        table)
+
+examples:
+  synthcohort gen --count 100 --seed 42 --out patients.csv
+  synthcohort gen --schema my_schema.json --count 50
+  synthcohort gen --count 10 --format json | jq '.[0]'
+  synthcohort validate --schema my_schema.json
+  synthcohort schema > template.json

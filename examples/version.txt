@@ -1,0 +1,3 @@
+$ synthcohort-emit --version
+
+synthcohort 0.1.0
